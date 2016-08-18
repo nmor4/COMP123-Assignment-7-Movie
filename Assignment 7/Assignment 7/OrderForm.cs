@@ -12,9 +12,17 @@ namespace Assignment_7
 {
     public partial class OrderForm : Form
     {
+        public SelectionForm previousForm;
         public OrderForm()
         {
             InitializeComponent();
         }
+
+        private void OrderForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

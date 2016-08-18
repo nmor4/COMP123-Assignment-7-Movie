@@ -30,9 +30,9 @@
         {
             this.MovieDropdownList = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.SelectTitleBox = new System.Windows.Forms.TextBox();
+            this.SelectCategoryBox = new System.Windows.Forms.TextBox();
+            this.SelectCostBox = new System.Windows.Forms.TextBox();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.CostLabel = new System.Windows.Forms.Label();
@@ -75,6 +75,7 @@
             this.MovieDropdownList.Size = new System.Drawing.Size(121, 26);
             this.MovieDropdownList.Sorted = true;
             this.MovieDropdownList.TabIndex = 0;
+            this.MovieDropdownList.SelectedIndexChanged += new System.EventHandler(this.MovieDropdownList_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -82,40 +83,43 @@
             this.groupBox1.Controls.Add(this.CostLabel);
             this.groupBox1.Controls.Add(this.CategoryLabel);
             this.groupBox1.Controls.Add(this.TitleLabel);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.SelectCostBox);
+            this.groupBox1.Controls.Add(this.SelectCategoryBox);
+            this.groupBox1.Controls.Add(this.SelectTitleBox);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(182, 65);
+            this.groupBox1.Location = new System.Drawing.Point(182, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(363, 415);
+            this.groupBox1.Size = new System.Drawing.Size(363, 462);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Your Selection";
             // 
-            // textBox1
+            // SelectTitleBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 68);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(147, 32);
-            this.textBox1.TabIndex = 0;
+            this.SelectTitleBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectTitleBox.Location = new System.Drawing.Point(21, 68);
+            this.SelectTitleBox.Name = "SelectTitleBox";
+            this.SelectTitleBox.ReadOnly = true;
+            this.SelectTitleBox.Size = new System.Drawing.Size(147, 32);
+            this.SelectTitleBox.TabIndex = 0;
             // 
-            // textBox2
+            // SelectCategoryBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(195, 68);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(147, 32);
-            this.textBox2.TabIndex = 1;
+            this.SelectCategoryBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectCategoryBox.Location = new System.Drawing.Point(195, 68);
+            this.SelectCategoryBox.Name = "SelectCategoryBox";
+            this.SelectCategoryBox.ReadOnly = true;
+            this.SelectCategoryBox.Size = new System.Drawing.Size(147, 32);
+            this.SelectCategoryBox.TabIndex = 1;
             // 
-            // textBox3
+            // SelectCostBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(21, 145);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(147, 32);
-            this.textBox3.TabIndex = 2;
+            this.SelectCostBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectCostBox.Location = new System.Drawing.Point(21, 145);
+            this.SelectCostBox.Name = "SelectCostBox";
+            this.SelectCostBox.ReadOnly = true;
+            this.SelectCostBox.Size = new System.Drawing.Size(147, 32);
+            this.SelectCostBox.TabIndex = 2;
             // 
             // TitleLabel
             // 
@@ -140,9 +144,9 @@
             this.CostLabel.AutoSize = true;
             this.CostLabel.Location = new System.Drawing.Point(17, 118);
             this.CostLabel.Name = "CostLabel";
-            this.CostLabel.Size = new System.Drawing.Size(47, 24);
+            this.CostLabel.Size = new System.Drawing.Size(166, 24);
             this.CostLabel.TabIndex = 5;
-            this.CostLabel.Text = "Cost";
+            this.CostLabel.Text = "Download Cost ($)";
             // 
             // SelectLabel
             // 
@@ -156,14 +160,16 @@
             // 
             // SelectionPicture
             // 
-            this.SelectionPicture.Location = new System.Drawing.Point(157, 193);
+            this.SelectionPicture.InitialImage = null;
+            this.SelectionPicture.Location = new System.Drawing.Point(53, 183);
             this.SelectionPicture.Name = "SelectionPicture";
-            this.SelectionPicture.Size = new System.Drawing.Size(185, 198);
+            this.SelectionPicture.Size = new System.Drawing.Size(252, 273);
             this.SelectionPicture.TabIndex = 6;
             this.SelectionPicture.TabStop = false;
             // 
             // SelectionNextButton
             // 
+            this.SelectionNextButton.Enabled = false;
             this.SelectionNextButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SelectionNextButton.Location = new System.Drawing.Point(24, 453);
             this.SelectionNextButton.Name = "SelectionNextButton";
@@ -171,6 +177,7 @@
             this.SelectionNextButton.TabIndex = 3;
             this.SelectionNextButton.Text = "Next";
             this.SelectionNextButton.UseVisualStyleBackColor = true;
+            this.SelectionNextButton.Click += new System.EventHandler(this.SelectionNextButton_Click);
             // 
             // SelectionForm
             // 
@@ -202,9 +209,9 @@
 
         private System.Windows.Forms.ComboBox MovieDropdownList;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox SelectCostBox;
+        private System.Windows.Forms.TextBox SelectCategoryBox;
+        private System.Windows.Forms.TextBox SelectTitleBox;
         private System.Windows.Forms.Label CostLabel;
         private System.Windows.Forms.Label CategoryLabel;
         private System.Windows.Forms.Label TitleLabel;
