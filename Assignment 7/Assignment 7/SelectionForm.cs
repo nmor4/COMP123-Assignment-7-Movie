@@ -192,6 +192,18 @@ namespace Assignment_7
 
         }
 
+        Image image_Selection;
+
+        public Image Image_Selection
+
+        {
+
+            get { return image_Selection; }
+
+            set { image_Selection = value; }
+
+        }
+
         private void SelectionNextButton_Click(object sender, EventArgs e)
         {
             Movie movie = Program.movie;
@@ -199,9 +211,11 @@ namespace Assignment_7
             movie.Title = SelectTitleBox.Text;
             movie.Category = SelectCategoryBox.Text;
             movie.Cost = Convert.ToDouble(SelectCostBox.Text);
+            
+            
 
             this.Hide();
-            OrderForm orderForm = new OrderForm();
+            OrderForm orderForm = new OrderForm(SelectionPicture.Image);
             orderForm.previousForm = this;
             orderForm.Show();
         }

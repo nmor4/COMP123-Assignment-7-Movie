@@ -30,19 +30,19 @@
         {
             this.OrderMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.streamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdermenuPrintButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdermenuStreamButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdermenuCancelButton = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdermenuAboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderStreamButton = new System.Windows.Forms.Button();
             this.OrderBackButton = new System.Windows.Forms.Button();
             this.OrderCancelButton = new System.Windows.Forms.Button();
             this.OrderMovieBox = new System.Windows.Forms.GroupBox();
             this.OrderOrderBox = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.OrderedMovieBox = new System.Windows.Forms.TextBox();
+            this.OrderedCategoryBox = new System.Windows.Forms.TextBox();
+            this.OrderedPictureBox = new System.Windows.Forms.PictureBox();
             this.MovieCostBox = new System.Windows.Forms.TextBox();
             this.SubtotalBox = new System.Windows.Forms.TextBox();
             this.MovieBuyBox = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@
             this.OrderMenuStrip.SuspendLayout();
             this.OrderMovieBox.SuspendLayout();
             this.OrderOrderBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderedPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // OrderMenuStrip
@@ -75,44 +75,45 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.printToolStripMenuItem,
-            this.streamToolStripMenuItem,
-            this.cancelToolStripMenuItem});
+            this.OrdermenuPrintButton,
+            this.OrdermenuStreamButton,
+            this.OrdermenuCancelButton});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // printToolStripMenuItem
+            // OrdermenuPrintButton
             // 
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
-            this.printToolStripMenuItem.Text = "Print";
+            this.OrdermenuPrintButton.Name = "OrdermenuPrintButton";
+            this.OrdermenuPrintButton.Size = new System.Drawing.Size(181, 26);
+            this.OrdermenuPrintButton.Text = "Print";
             // 
-            // streamToolStripMenuItem
+            // OrdermenuStreamButton
             // 
-            this.streamToolStripMenuItem.Name = "streamToolStripMenuItem";
-            this.streamToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
-            this.streamToolStripMenuItem.Text = "Stream";
+            this.OrdermenuStreamButton.Name = "OrdermenuStreamButton";
+            this.OrdermenuStreamButton.Size = new System.Drawing.Size(181, 26);
+            this.OrdermenuStreamButton.Text = "Stream";
             // 
-            // cancelToolStripMenuItem
+            // OrdermenuCancelButton
             // 
-            this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
-            this.cancelToolStripMenuItem.Text = "Cancel";
+            this.OrdermenuCancelButton.Name = "OrdermenuCancelButton";
+            this.OrdermenuCancelButton.Size = new System.Drawing.Size(181, 26);
+            this.OrdermenuCancelButton.Text = "Cancel";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.OrdermenuAboutButton});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // aboutToolStripMenuItem
+            // OrdermenuAboutButton
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.OrdermenuAboutButton.Name = "OrdermenuAboutButton";
+            this.OrdermenuAboutButton.Size = new System.Drawing.Size(181, 26);
+            this.OrdermenuAboutButton.Text = "About";
+            this.OrdermenuAboutButton.Click += new System.EventHandler(this.OrdermenuAboutButton_Click);
             // 
             // OrderStreamButton
             // 
@@ -146,13 +147,13 @@
             // 
             // OrderMovieBox
             // 
-            this.OrderMovieBox.Controls.Add(this.pictureBox1);
-            this.OrderMovieBox.Controls.Add(this.textBox2);
-            this.OrderMovieBox.Controls.Add(this.textBox1);
+            this.OrderMovieBox.Controls.Add(this.OrderedPictureBox);
+            this.OrderMovieBox.Controls.Add(this.OrderedCategoryBox);
+            this.OrderMovieBox.Controls.Add(this.OrderedMovieBox);
             this.OrderMovieBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OrderMovieBox.Location = new System.Drawing.Point(12, 54);
             this.OrderMovieBox.Name = "OrderMovieBox";
-            this.OrderMovieBox.Size = new System.Drawing.Size(252, 372);
+            this.OrderMovieBox.Size = new System.Drawing.Size(252, 394);
             this.OrderMovieBox.TabIndex = 4;
             this.OrderMovieBox.TabStop = false;
             this.OrderMovieBox.Text = "Movie Selected";
@@ -178,32 +179,34 @@
             this.OrderOrderBox.TabStop = false;
             this.OrderOrderBox.Text = "Your Order";
             // 
-            // textBox1
+            // OrderedMovieBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(141, 24);
-            this.textBox1.TabIndex = 0;
+            this.OrderedMovieBox.Location = new System.Drawing.Point(30, 35);
+            this.OrderedMovieBox.Name = "OrderedMovieBox";
+            this.OrderedMovieBox.ReadOnly = true;
+            this.OrderedMovieBox.Size = new System.Drawing.Size(188, 24);
+            this.OrderedMovieBox.TabIndex = 0;
             // 
-            // textBox2
+            // OrderedCategoryBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(56, 79);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(141, 24);
-            this.textBox2.TabIndex = 1;
+            this.OrderedCategoryBox.Location = new System.Drawing.Point(56, 79);
+            this.OrderedCategoryBox.Name = "OrderedCategoryBox";
+            this.OrderedCategoryBox.ReadOnly = true;
+            this.OrderedCategoryBox.Size = new System.Drawing.Size(141, 24);
+            this.OrderedCategoryBox.TabIndex = 1;
             // 
-            // pictureBox1
+            // OrderedPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 109);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(246, 257);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.OrderedPictureBox.InitialImage = null;
+            this.OrderedPictureBox.Location = new System.Drawing.Point(6, 109);
+            this.OrderedPictureBox.Name = "OrderedPictureBox";
+            this.OrderedPictureBox.Size = new System.Drawing.Size(246, 279);
+            this.OrderedPictureBox.TabIndex = 2;
+            this.OrderedPictureBox.TabStop = false;
             // 
             // MovieCostBox
             // 
+            this.MovieCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MovieCostBox.Location = new System.Drawing.Point(15, 56);
             this.MovieCostBox.Name = "MovieCostBox";
             this.MovieCostBox.ReadOnly = true;
@@ -212,6 +215,7 @@
             // 
             // SubtotalBox
             // 
+            this.SubtotalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubtotalBox.Location = new System.Drawing.Point(15, 177);
             this.SubtotalBox.Name = "SubtotalBox";
             this.SubtotalBox.ReadOnly = true;
@@ -220,15 +224,18 @@
             // 
             // MovieBuyBox
             // 
+            this.MovieBuyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MovieBuyBox.Location = new System.Drawing.Point(15, 109);
             this.MovieBuyBox.Name = "MovieBuyBox";
             this.MovieBuyBox.ReadOnly = true;
             this.MovieBuyBox.Size = new System.Drawing.Size(119, 24);
             this.MovieBuyBox.TabIndex = 3;
+            this.MovieBuyBox.Text = "$10";
             this.MovieBuyBox.Visible = false;
             // 
             // SalestaxBox
             // 
+            this.SalestaxBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalestaxBox.Location = new System.Drawing.Point(15, 241);
             this.SalestaxBox.Name = "SalestaxBox";
             this.SalestaxBox.ReadOnly = true;
@@ -237,6 +244,7 @@
             // 
             // GrandTotalBox
             // 
+            this.GrandTotalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrandTotalBox.Location = new System.Drawing.Point(15, 305);
             this.GrandTotalBox.Name = "GrandTotalBox";
             this.GrandTotalBox.ReadOnly = true;
@@ -298,6 +306,7 @@
             this.BuyMovieCheckbox.TabIndex = 11;
             this.BuyMovieCheckbox.Text = "Buy Movie?";
             this.BuyMovieCheckbox.UseVisualStyleBackColor = true;
+            this.BuyMovieCheckbox.CheckedChanged += new System.EventHandler(this.BuyMovieCheckbox_CheckedChanged);
             // 
             // OrderForm
             // 
@@ -325,7 +334,7 @@
             this.OrderMovieBox.PerformLayout();
             this.OrderOrderBox.ResumeLayout(false);
             this.OrderOrderBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderedPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,19 +344,19 @@
 
         private System.Windows.Forms.MenuStrip OrderMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem streamToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OrdermenuPrintButton;
+        private System.Windows.Forms.ToolStripMenuItem OrdermenuStreamButton;
+        private System.Windows.Forms.ToolStripMenuItem OrdermenuCancelButton;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OrdermenuAboutButton;
         private System.Windows.Forms.Button OrderStreamButton;
         private System.Windows.Forms.Button OrderBackButton;
         private System.Windows.Forms.Button OrderCancelButton;
         private System.Windows.Forms.GroupBox OrderMovieBox;
         private System.Windows.Forms.GroupBox OrderOrderBox;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox OrderedPictureBox;
+        private System.Windows.Forms.TextBox OrderedCategoryBox;
+        private System.Windows.Forms.TextBox OrderedMovieBox;
         private System.Windows.Forms.CheckBox BuyMovieCheckbox;
         private System.Windows.Forms.Label GrandTotalLabel;
         private System.Windows.Forms.Label SalestaxLabel;

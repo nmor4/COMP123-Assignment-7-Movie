@@ -13,5 +13,9 @@ namespace Assignment_7
         public string Category { get; set; }  
 
         public double Cost { get; set; }
+
+        
+
+        
     }
 }

@@ -14,6 +14,7 @@ namespace Assignment_7
     static class Program
     {
         public static Movie movie = new Movie();
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
