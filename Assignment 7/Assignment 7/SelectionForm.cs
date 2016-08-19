@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace Assignment_7
 {
+    /* Author: Nick Morin-300654901
+ * Description: COMP123-Assignment 7 - Movie Bonanaza - Selection Form
+ * Date last modified: 2016-08-18
+ */
     public partial class SelectionForm : Form
     {
         Image image_Selection;
@@ -27,6 +31,7 @@ namespace Assignment_7
 
         }
 
+        //Event Handlers --------------------------------
         private void SelectionForm_Load(object sender, EventArgs e)
         {
 

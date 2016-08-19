@@ -10,9 +10,14 @@ using System.Windows.Forms;
 
 namespace Assignment_7
 {
+    /* Author: Nick Morin-300654901
+ * Description: COMP123-Assignment 7-Movie Bonanaza - StreamForm
+ * Date last modified: 2016-08-19
+ */
     public partial class StreamForm : Form
     {
        
+        
         public StreamForm(string streamTitle,string grandTotal)
         {
             InitializeComponent();
@@ -21,11 +26,7 @@ namespace Assignment_7
 
         }
 
-        private void StreamForm_Load(object sender, EventArgs e)
-        {
-             
-        }
-
+        //OK button closes application
         private void OkButton_Click(object sender, EventArgs e)
         {
             this.Close();
