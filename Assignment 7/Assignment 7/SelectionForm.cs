@@ -12,9 +12,19 @@ namespace Assignment_7
 {
     public partial class SelectionForm : Form
     {
+        Image image_Selection;
         public SelectionForm()
         {
             InitializeComponent();
+        }
+        public Image Image_Selection
+
+        {
+
+            get { return image_Selection; }
+
+            set { image_Selection = value; }
+
         }
 
         private void SelectionForm_Load(object sender, EventArgs e)
@@ -189,18 +199,6 @@ namespace Assignment_7
                 default:
                     break;
             }
-
-        }
-
-        Image image_Selection;
-
-        public Image Image_Selection
-
-        {
-
-            get { return image_Selection; }
-
-            set { image_Selection = value; }
 
         }
 

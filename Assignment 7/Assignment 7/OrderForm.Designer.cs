@@ -39,25 +39,25 @@
             this.OrderBackButton = new System.Windows.Forms.Button();
             this.OrderCancelButton = new System.Windows.Forms.Button();
             this.OrderMovieBox = new System.Windows.Forms.GroupBox();
-            this.OrderOrderBox = new System.Windows.Forms.GroupBox();
-            this.OrderedMovieBox = new System.Windows.Forms.TextBox();
-            this.OrderedCategoryBox = new System.Windows.Forms.TextBox();
             this.OrderedPictureBox = new System.Windows.Forms.PictureBox();
-            this.MovieCostBox = new System.Windows.Forms.TextBox();
-            this.SubtotalBox = new System.Windows.Forms.TextBox();
-            this.MovieBuyBox = new System.Windows.Forms.TextBox();
-            this.SalestaxBox = new System.Windows.Forms.TextBox();
-            this.GrandTotalBox = new System.Windows.Forms.TextBox();
-            this.MovieCostLabel = new System.Windows.Forms.Label();
-            this.BuyMovieLabel = new System.Windows.Forms.Label();
-            this.SubtotalLabel = new System.Windows.Forms.Label();
-            this.SalestaxLabel = new System.Windows.Forms.Label();
-            this.GrandTotalLabel = new System.Windows.Forms.Label();
+            this.OrderedCategoryBox = new System.Windows.Forms.TextBox();
+            this.OrderedMovieBox = new System.Windows.Forms.TextBox();
+            this.OrderOrderBox = new System.Windows.Forms.GroupBox();
             this.BuyMovieCheckbox = new System.Windows.Forms.CheckBox();
+            this.GrandTotalLabel = new System.Windows.Forms.Label();
+            this.SalestaxLabel = new System.Windows.Forms.Label();
+            this.SubtotalLabel = new System.Windows.Forms.Label();
+            this.BuyMovieLabel = new System.Windows.Forms.Label();
+            this.MovieCostLabel = new System.Windows.Forms.Label();
+            this.GrandTotalBox = new System.Windows.Forms.TextBox();
+            this.SalestaxBox = new System.Windows.Forms.TextBox();
+            this.MovieBuyBox = new System.Windows.Forms.TextBox();
+            this.SubtotalBox = new System.Windows.Forms.TextBox();
+            this.MovieCostBox = new System.Windows.Forms.TextBox();
             this.OrderMenuStrip.SuspendLayout();
             this.OrderMovieBox.SuspendLayout();
-            this.OrderOrderBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderedPictureBox)).BeginInit();
+            this.OrderOrderBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // OrderMenuStrip
@@ -87,18 +87,21 @@
             this.OrdermenuPrintButton.Name = "OrdermenuPrintButton";
             this.OrdermenuPrintButton.Size = new System.Drawing.Size(181, 26);
             this.OrdermenuPrintButton.Text = "Print";
+            this.OrdermenuPrintButton.Click += new System.EventHandler(this.OrdermenuPrintButton_Click);
             // 
             // OrdermenuStreamButton
             // 
             this.OrdermenuStreamButton.Name = "OrdermenuStreamButton";
             this.OrdermenuStreamButton.Size = new System.Drawing.Size(181, 26);
             this.OrdermenuStreamButton.Text = "Stream";
+            this.OrdermenuStreamButton.Click += new System.EventHandler(this.OrderStreamButton_Click);
             // 
             // OrdermenuCancelButton
             // 
             this.OrdermenuCancelButton.Name = "OrdermenuCancelButton";
             this.OrdermenuCancelButton.Size = new System.Drawing.Size(181, 26);
             this.OrdermenuCancelButton.Text = "Cancel";
+            this.OrdermenuCancelButton.Click += new System.EventHandler(this.OrderCancelButton_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -124,6 +127,7 @@
             this.OrderStreamButton.TabIndex = 1;
             this.OrderStreamButton.Text = "Stream";
             this.OrderStreamButton.UseVisualStyleBackColor = true;
+            this.OrderStreamButton.Click += new System.EventHandler(this.OrderStreamButton_Click);
             // 
             // OrderBackButton
             // 
@@ -134,6 +138,7 @@
             this.OrderBackButton.TabIndex = 2;
             this.OrderBackButton.Text = "Back";
             this.OrderBackButton.UseVisualStyleBackColor = true;
+            this.OrderBackButton.Click += new System.EventHandler(this.OrderBackButton_Click);
             // 
             // OrderCancelButton
             // 
@@ -144,6 +149,7 @@
             this.OrderCancelButton.TabIndex = 3;
             this.OrderCancelButton.Text = "Cancel";
             this.OrderCancelButton.UseVisualStyleBackColor = true;
+            this.OrderCancelButton.Click += new System.EventHandler(this.OrderCancelButton_Click);
             // 
             // OrderMovieBox
             // 
@@ -157,6 +163,31 @@
             this.OrderMovieBox.TabIndex = 4;
             this.OrderMovieBox.TabStop = false;
             this.OrderMovieBox.Text = "Movie Selected";
+            // 
+            // OrderedPictureBox
+            // 
+            this.OrderedPictureBox.InitialImage = null;
+            this.OrderedPictureBox.Location = new System.Drawing.Point(6, 109);
+            this.OrderedPictureBox.Name = "OrderedPictureBox";
+            this.OrderedPictureBox.Size = new System.Drawing.Size(246, 279);
+            this.OrderedPictureBox.TabIndex = 2;
+            this.OrderedPictureBox.TabStop = false;
+            // 
+            // OrderedCategoryBox
+            // 
+            this.OrderedCategoryBox.Location = new System.Drawing.Point(56, 79);
+            this.OrderedCategoryBox.Name = "OrderedCategoryBox";
+            this.OrderedCategoryBox.ReadOnly = true;
+            this.OrderedCategoryBox.Size = new System.Drawing.Size(141, 24);
+            this.OrderedCategoryBox.TabIndex = 1;
+            // 
+            // OrderedMovieBox
+            // 
+            this.OrderedMovieBox.Location = new System.Drawing.Point(30, 35);
+            this.OrderedMovieBox.Name = "OrderedMovieBox";
+            this.OrderedMovieBox.ReadOnly = true;
+            this.OrderedMovieBox.Size = new System.Drawing.Size(188, 24);
+            this.OrderedMovieBox.TabIndex = 0;
             // 
             // OrderOrderBox
             // 
@@ -179,48 +210,80 @@
             this.OrderOrderBox.TabStop = false;
             this.OrderOrderBox.Text = "Your Order";
             // 
-            // OrderedMovieBox
+            // BuyMovieCheckbox
             // 
-            this.OrderedMovieBox.Location = new System.Drawing.Point(30, 35);
-            this.OrderedMovieBox.Name = "OrderedMovieBox";
-            this.OrderedMovieBox.ReadOnly = true;
-            this.OrderedMovieBox.Size = new System.Drawing.Size(188, 24);
-            this.OrderedMovieBox.TabIndex = 0;
+            this.BuyMovieCheckbox.AutoSize = true;
+            this.BuyMovieCheckbox.Location = new System.Drawing.Point(140, 56);
+            this.BuyMovieCheckbox.Name = "BuyMovieCheckbox";
+            this.BuyMovieCheckbox.Size = new System.Drawing.Size(117, 22);
+            this.BuyMovieCheckbox.TabIndex = 11;
+            this.BuyMovieCheckbox.Text = "Buy Movie?";
+            this.BuyMovieCheckbox.UseVisualStyleBackColor = true;
+            this.BuyMovieCheckbox.CheckedChanged += new System.EventHandler(this.BuyMovieCheckbox_CheckedChanged);
             // 
-            // OrderedCategoryBox
+            // GrandTotalLabel
             // 
-            this.OrderedCategoryBox.Location = new System.Drawing.Point(56, 79);
-            this.OrderedCategoryBox.Name = "OrderedCategoryBox";
-            this.OrderedCategoryBox.ReadOnly = true;
-            this.OrderedCategoryBox.Size = new System.Drawing.Size(141, 24);
-            this.OrderedCategoryBox.TabIndex = 1;
+            this.GrandTotalLabel.AutoSize = true;
+            this.GrandTotalLabel.Location = new System.Drawing.Point(15, 284);
+            this.GrandTotalLabel.Name = "GrandTotalLabel";
+            this.GrandTotalLabel.Size = new System.Drawing.Size(97, 18);
+            this.GrandTotalLabel.TabIndex = 10;
+            this.GrandTotalLabel.Text = "Grand Total";
             // 
-            // OrderedPictureBox
+            // SalestaxLabel
             // 
-            this.OrderedPictureBox.InitialImage = null;
-            this.OrderedPictureBox.Location = new System.Drawing.Point(6, 109);
-            this.OrderedPictureBox.Name = "OrderedPictureBox";
-            this.OrderedPictureBox.Size = new System.Drawing.Size(246, 279);
-            this.OrderedPictureBox.TabIndex = 2;
-            this.OrderedPictureBox.TabStop = false;
+            this.SalestaxLabel.AutoSize = true;
+            this.SalestaxLabel.Location = new System.Drawing.Point(15, 220);
+            this.SalestaxLabel.Name = "SalestaxLabel";
+            this.SalestaxLabel.Size = new System.Drawing.Size(82, 18);
+            this.SalestaxLabel.TabIndex = 9;
+            this.SalestaxLabel.Text = "Sales Tax";
             // 
-            // MovieCostBox
+            // SubtotalLabel
             // 
-            this.MovieCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MovieCostBox.Location = new System.Drawing.Point(15, 56);
-            this.MovieCostBox.Name = "MovieCostBox";
-            this.MovieCostBox.ReadOnly = true;
-            this.MovieCostBox.Size = new System.Drawing.Size(119, 24);
-            this.MovieCostBox.TabIndex = 1;
+            this.SubtotalLabel.AutoSize = true;
+            this.SubtotalLabel.Location = new System.Drawing.Point(15, 156);
+            this.SubtotalLabel.Name = "SubtotalLabel";
+            this.SubtotalLabel.Size = new System.Drawing.Size(70, 18);
+            this.SubtotalLabel.TabIndex = 8;
+            this.SubtotalLabel.Text = "Subtotal";
             // 
-            // SubtotalBox
+            // BuyMovieLabel
             // 
-            this.SubtotalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubtotalBox.Location = new System.Drawing.Point(15, 177);
-            this.SubtotalBox.Name = "SubtotalBox";
-            this.SubtotalBox.ReadOnly = true;
-            this.SubtotalBox.Size = new System.Drawing.Size(119, 24);
-            this.SubtotalBox.TabIndex = 2;
+            this.BuyMovieLabel.AutoSize = true;
+            this.BuyMovieLabel.Location = new System.Drawing.Point(15, 85);
+            this.BuyMovieLabel.Name = "BuyMovieLabel";
+            this.BuyMovieLabel.Size = new System.Drawing.Size(86, 18);
+            this.BuyMovieLabel.TabIndex = 7;
+            this.BuyMovieLabel.Text = "Buy Movie";
+            this.BuyMovieLabel.Visible = false;
+            // 
+            // MovieCostLabel
+            // 
+            this.MovieCostLabel.AutoSize = true;
+            this.MovieCostLabel.Location = new System.Drawing.Point(15, 35);
+            this.MovieCostLabel.Name = "MovieCostLabel";
+            this.MovieCostLabel.Size = new System.Drawing.Size(114, 18);
+            this.MovieCostLabel.TabIndex = 6;
+            this.MovieCostLabel.Text = "Cost of Movie";
+            // 
+            // GrandTotalBox
+            // 
+            this.GrandTotalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrandTotalBox.Location = new System.Drawing.Point(15, 305);
+            this.GrandTotalBox.Name = "GrandTotalBox";
+            this.GrandTotalBox.ReadOnly = true;
+            this.GrandTotalBox.Size = new System.Drawing.Size(119, 24);
+            this.GrandTotalBox.TabIndex = 5;
+            // 
+            // SalestaxBox
+            // 
+            this.SalestaxBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalestaxBox.Location = new System.Drawing.Point(15, 241);
+            this.SalestaxBox.Name = "SalestaxBox";
+            this.SalestaxBox.ReadOnly = true;
+            this.SalestaxBox.Size = new System.Drawing.Size(119, 24);
+            this.SalestaxBox.TabIndex = 4;
             // 
             // MovieBuyBox
             // 
@@ -233,80 +296,23 @@
             this.MovieBuyBox.Text = "$10";
             this.MovieBuyBox.Visible = false;
             // 
-            // SalestaxBox
+            // SubtotalBox
             // 
-            this.SalestaxBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalestaxBox.Location = new System.Drawing.Point(15, 241);
-            this.SalestaxBox.Name = "SalestaxBox";
-            this.SalestaxBox.ReadOnly = true;
-            this.SalestaxBox.Size = new System.Drawing.Size(119, 24);
-            this.SalestaxBox.TabIndex = 4;
+            this.SubtotalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubtotalBox.Location = new System.Drawing.Point(15, 177);
+            this.SubtotalBox.Name = "SubtotalBox";
+            this.SubtotalBox.ReadOnly = true;
+            this.SubtotalBox.Size = new System.Drawing.Size(119, 24);
+            this.SubtotalBox.TabIndex = 2;
             // 
-            // GrandTotalBox
+            // MovieCostBox
             // 
-            this.GrandTotalBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrandTotalBox.Location = new System.Drawing.Point(15, 305);
-            this.GrandTotalBox.Name = "GrandTotalBox";
-            this.GrandTotalBox.ReadOnly = true;
-            this.GrandTotalBox.Size = new System.Drawing.Size(119, 24);
-            this.GrandTotalBox.TabIndex = 5;
-            // 
-            // MovieCostLabel
-            // 
-            this.MovieCostLabel.AutoSize = true;
-            this.MovieCostLabel.Location = new System.Drawing.Point(15, 35);
-            this.MovieCostLabel.Name = "MovieCostLabel";
-            this.MovieCostLabel.Size = new System.Drawing.Size(114, 18);
-            this.MovieCostLabel.TabIndex = 6;
-            this.MovieCostLabel.Text = "Cost of Movie";
-            // 
-            // BuyMovieLabel
-            // 
-            this.BuyMovieLabel.AutoSize = true;
-            this.BuyMovieLabel.Location = new System.Drawing.Point(15, 85);
-            this.BuyMovieLabel.Name = "BuyMovieLabel";
-            this.BuyMovieLabel.Size = new System.Drawing.Size(86, 18);
-            this.BuyMovieLabel.TabIndex = 7;
-            this.BuyMovieLabel.Text = "Buy Movie";
-            this.BuyMovieLabel.Visible = false;
-            // 
-            // SubtotalLabel
-            // 
-            this.SubtotalLabel.AutoSize = true;
-            this.SubtotalLabel.Location = new System.Drawing.Point(15, 156);
-            this.SubtotalLabel.Name = "SubtotalLabel";
-            this.SubtotalLabel.Size = new System.Drawing.Size(70, 18);
-            this.SubtotalLabel.TabIndex = 8;
-            this.SubtotalLabel.Text = "Subtotal";
-            // 
-            // SalestaxLabel
-            // 
-            this.SalestaxLabel.AutoSize = true;
-            this.SalestaxLabel.Location = new System.Drawing.Point(15, 220);
-            this.SalestaxLabel.Name = "SalestaxLabel";
-            this.SalestaxLabel.Size = new System.Drawing.Size(82, 18);
-            this.SalestaxLabel.TabIndex = 9;
-            this.SalestaxLabel.Text = "Sales Tax";
-            // 
-            // GrandTotalLabel
-            // 
-            this.GrandTotalLabel.AutoSize = true;
-            this.GrandTotalLabel.Location = new System.Drawing.Point(15, 284);
-            this.GrandTotalLabel.Name = "GrandTotalLabel";
-            this.GrandTotalLabel.Size = new System.Drawing.Size(97, 18);
-            this.GrandTotalLabel.TabIndex = 10;
-            this.GrandTotalLabel.Text = "Grand Total";
-            // 
-            // BuyMovieCheckbox
-            // 
-            this.BuyMovieCheckbox.AutoSize = true;
-            this.BuyMovieCheckbox.Location = new System.Drawing.Point(140, 56);
-            this.BuyMovieCheckbox.Name = "BuyMovieCheckbox";
-            this.BuyMovieCheckbox.Size = new System.Drawing.Size(117, 22);
-            this.BuyMovieCheckbox.TabIndex = 11;
-            this.BuyMovieCheckbox.Text = "Buy Movie?";
-            this.BuyMovieCheckbox.UseVisualStyleBackColor = true;
-            this.BuyMovieCheckbox.CheckedChanged += new System.EventHandler(this.BuyMovieCheckbox_CheckedChanged);
+            this.MovieCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MovieCostBox.Location = new System.Drawing.Point(15, 56);
+            this.MovieCostBox.Name = "MovieCostBox";
+            this.MovieCostBox.ReadOnly = true;
+            this.MovieCostBox.Size = new System.Drawing.Size(119, 24);
+            this.MovieCostBox.TabIndex = 1;
             // 
             // OrderForm
             // 
@@ -332,9 +338,9 @@
             this.OrderMenuStrip.PerformLayout();
             this.OrderMovieBox.ResumeLayout(false);
             this.OrderMovieBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderedPictureBox)).EndInit();
             this.OrderOrderBox.ResumeLayout(false);
             this.OrderOrderBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderedPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
